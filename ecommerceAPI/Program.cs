@@ -8,6 +8,8 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
+builder.Services.AddControllers();
+
 var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
