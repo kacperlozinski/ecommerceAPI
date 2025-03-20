@@ -1,14 +1,27 @@
+using ecommerceAPI;
+using ecommerceAPI.Entities;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddDbContext<EcommerceDbContext>();
+builder.Services.AddScoped<EcommerceSeeder>();
+builder.Services.AddControllers();
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
 
-builder.Services.AddControllers();
+
+
+using (var scope = app.Services.CreateScope())
+{
+    var seeder = scope.ServiceProvider.GetRequiredService<EcommerceSeeder>();
+    await seeder.Seed(); // Teraz Seeder jest dostêpny i dzia³a poprawnie
+}
 
 var summaries = new[]
 {
