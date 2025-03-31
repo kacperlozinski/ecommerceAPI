@@ -2,7 +2,7 @@
 {
     public class OrdersDto
     {
-
+        //to do: shiping address
         public string CustomerId { get; set; }
         public DateTime OrderDate { get; set; }
 

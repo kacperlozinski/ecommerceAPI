@@ -11,5 +11,6 @@ namespace ecommerceAPI.Models
 
         public string? CategoryDescription { get; set; }
 
+
     }
 }
